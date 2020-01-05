@@ -1,6 +1,7 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import {List,ListItem,IconButton} from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -9,14 +10,24 @@ import MenuIcon from '@material-ui/icons/Menu';
 const useStyles = makeStyles({
   list: {
     width: 250,
+  },
+  paper:{
+    background:'#4c6cb3'
   }
 });
 
-export default function SwipableDrawer() {
+const Drawer=(props)=>{
   const classes = useStyles();
   const [state, setState] = React.useState({left: false});
 
   const toggleDrawer=(open)=>event=>setState({'left':open });
+
+  const handleToHOME=()=>{
+    props.history.push('./');
+  }
+  const handleToAboutMe=()=>{
+    props.history.push('/AboutMe');
+  }
 
   const sideList=()=>(
     <div
@@ -24,9 +35,12 @@ export default function SwipableDrawer() {
       onClick={toggleDrawer(false)}
     >
       <List>
-          <ListItem button>
-            <ListItemText primary={"HOME"} />
-          </ListItem>
+        <ListItem button onClick={handleToHOME}>
+          <ListItemText>HOME</ListItemText>
+        </ListItem>
+        <ListItem button onClick={handleToAboutMe}>
+          <ListItemText>AboutMe</ListItemText>
+        </ListItem>
       </List>
     </div>
   );
@@ -40,9 +54,15 @@ export default function SwipableDrawer() {
       >
         <MenuIcon/>
       </IconButton>
-      <Drawer open={state.left} onClose={toggleDrawer(false)}>
+      <SwipeableDrawer
+        open={state.left}
+        onClose={toggleDrawer(false)}
+        classes={{paper:classes.paper}}
+      >
         {sideList()}
-      </Drawer>
+      </SwipeableDrawer>
     </div>
   );
 }
+
+export default withRouter(Drawer);
