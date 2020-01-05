@@ -5,7 +5,7 @@ const useStyles=makeStyles({
   div:{
     width:'100%',
     textAlign:'center',
-    padding:'30px 0',
+    padding:'5px 0',
     position:'absolute',
     bottom:0,
   }

@@ -12,11 +12,11 @@ const useStyles=makeStyles({
 
 const App=()=>{
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <div>
+    <BrowserRouter>
+      <switch>
         <Route exact path='/'component={Home}/>
         <Route path='/AboutMe'component={AboutMe}/>
-      </div>
+      </switch>
     </BrowserRouter>
   );
 }
@@ -25,8 +25,7 @@ const Home=()=>(
     <Header/>
     <p>Reactで作ってるんですがデザインセンスがなさ過ぎてつらいです</p>
     <h5>更新履歴</h5>
-    <p>2020/01/06:デプロイしました。</p>
-    <p>2020/01/05:あまりにも殺風景なので背景色を水色に変更しました。</p>
+    <p>2020/01/05:あまりにも殺風景なので背景色を水色に変更しました</p>
     <p>2020/01/04:ヘッダーとドロワーを付けて仮自己紹介ページを作ってルーティングしました。</p>
     <Footer/>
   </div>
