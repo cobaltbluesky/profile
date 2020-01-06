@@ -12,7 +12,7 @@ const useStyles=makeStyles({
 
 const App=()=>{
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <switch>
         <Route exact path='/'component={Home}/>
         <Route path='/AboutMe'component={AboutMe}/>
