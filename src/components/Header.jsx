@@ -19,7 +19,7 @@ const Header=()=>{
   return(
     <AppBar position="static"style={{backgroundColor:'#414fa3'}}>
       <Toolbar>
-      <Drawer/>
+      <Drawer now={window.location.href}/>
         <Typography variant="h6" className={classes.title}>
           gunjou's portfolio
         </Typography>

@@ -2,14 +2,18 @@ import React from 'react';
 import {withRouter} from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Divider from '@material-ui/core/Divider';
 import {List,ListItem,IconButton} from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import Footer from './Footer';
 
 const useStyles = makeStyles({
   list: {
     width: 250,
+  },
+  isSelect:{
+    backgroundColor:'#bce2e8',
   },
   paper:{
     background:'#4c6cb3'
@@ -17,16 +21,42 @@ const useStyles = makeStyles({
 });
 
 const Drawer=(props)=>{
-  const classes = useStyles();
+  //URLから現在地を抽出
+  let now=props.now;
+  let nowpage='';
+  let count=0;
+  for(let i=0;i<now.length;i++){
+    if(count>2)nowpage+=now[i];
+    if(now[i]==='/')count++;
+  }
+  //現在地にtrueを渡す
+  let isHomeNow=false;
+  let isAboutMeNow=false;
+  let isTweetsNow=false;
+  let isContactNow=false;
+  if(nowpage==='')isHomeNow=true;
+  if(nowpage==='AboutMe')isAboutMeNow=true;
+  if(nowpage==='Tweets')isTweetsNow=true;
+  if(nowpage==='Contact')isContactNow=true;
+  console.log(isHomeNow);
+
+  const classes=useStyles();
+
   const [state, setState] = React.useState({left: false});
 
   const toggleDrawer=(open)=>event=>setState({'left':open });
 
-  const handleToHOME=()=>{
+  const handleToHome=()=>{
     props.history.push('./');
   }
   const handleToAboutMe=()=>{
     props.history.push('/AboutMe');
+  }
+  const handleToTweets=()=>{
+    props.history.push('/Tweets');
+  }
+  const handleToContact=()=>{
+    props.history.push('/Contact');
   }
 
   const sideList=()=>(
@@ -35,13 +65,36 @@ const Drawer=(props)=>{
       onClick={toggleDrawer(false)}
     >
       <List>
-        <ListItem button onClick={handleToHOME}>
-          <ListItemText>HOME</ListItemText>
+        <ListItem
+          onClick={handleToHome}
+          className={isHomeNow?classes.isSelect:classes.paper}
+        >
+          <ListItemText>Home</ListItemText>
         </ListItem>
-        <ListItem button onClick={handleToAboutMe}>
+        <Divider/>
+        <ListItem
+          onClick={handleToAboutMe}
+          className={isAboutMeNow?classes.isSelect:classes.paper}
+        >
           <ListItemText>AboutMe</ListItemText>
         </ListItem>
+        <Divider/>
+        <ListItem
+          onClick={handleToTweets}
+          className={isTweetsNow?classes.isSelect:classes.paper}
+        >
+          <ListItemText>Tweets</ListItemText>
+        </ListItem>
+        <Divider/>
+        <ListItem
+          onClick={handleToContact}
+          className={isContactNow?classes.isSelect:classes.paper}
+        >
+          <ListItemText>Contact</ListItemText>
+        </ListItem>
+        <Divider/>
       </List>
+      <Footer/>
     </div>
   );
 
