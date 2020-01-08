@@ -1,2 +1,1 @@
-# profile
-https://cobaltbluesky.github.io/profile
+# https://cobaltbluesky.github.io/profile
