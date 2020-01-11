@@ -5,7 +5,18 @@ import Footer from './Footer';
 const Contact=()=>(
   <div>
     <Header/>
-      <p>準備中です。</p>
+    <h2>
+      twitter:
+      <a href='https://twitter.com/chuni_character'>
+        @chuni_character
+      </a>
+    </h2>
+    <h2>
+      GitHub:
+      <a href="https://github.com/cobaltbluesky">
+        @cobaltbluesky
+      </a>
+    </h2>
     <Footer/>
   </div>
 )

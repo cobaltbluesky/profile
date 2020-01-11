@@ -6,7 +6,6 @@ import Divider from '@material-ui/core/Divider';
 import {List,ListItem,IconButton} from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
-import Footer from './Footer';
 
 const useStyles = makeStyles({
   list: {
@@ -26,7 +25,7 @@ const Drawer=(props)=>{
   let nowpage='';
   let count=0;
   for(let i=0;i<now.length;i++){
-    if(count>2)nowpage+=now[i];
+    if(count>3)nowpage+=now[i];
     if(now[i]==='/')count++;
   }
   //現在地にtrueを渡す
@@ -38,7 +37,6 @@ const Drawer=(props)=>{
   if(nowpage==='AboutMe')isAboutMeNow=true;
   if(nowpage==='Tweets')isTweetsNow=true;
   if(nowpage==='Contact')isContactNow=true;
-  console.log(isHomeNow);
 
   const classes=useStyles();
 
@@ -94,7 +92,6 @@ const Drawer=(props)=>{
         </ListItem>
         <Divider/>
       </List>
-      <Footer/>
     </div>
   );
 
