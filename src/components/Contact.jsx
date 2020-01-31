@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './Header';
-import Footer from './Footer';
 
 const Contact=()=>(
   <div>
@@ -17,7 +16,6 @@ const Contact=()=>(
         @cobaltbluesky
       </a>
     </h2>
-    <Footer/>
   </div>
 )
 export default Contact;
