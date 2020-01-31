@@ -12,16 +12,21 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  Appbar:{
+    backgroundColor:'#414fa3',
+    top:0,
+    position:'sticky',
+  }
 }));
 
 const Header=()=>{
   const classes=useStyles();
   return(
-    <AppBar position="static"style={{backgroundColor:'#414fa3'}}>
+    <AppBar position="static"className={classes.Appbar}>
       <Toolbar>
       <Drawer now={window.location.href}/>
         <Typography variant="h6" className={classes.title}>
-          gunjou's portfolio
+          gunjou's portfolio(仮設)
         </Typography>
       </Toolbar>
     </AppBar>
