@@ -12,10 +12,16 @@ const useStyles = makeStyles({
     width: 250,
   },
   isSelect:{
-    backgroundColor:'#bce2e8',
+    backgroundColor:'#bce2e8'
   },
   paper:{
     background:'#4c6cb3'
+  },
+  button:{
+    background:'#4c6cb3',
+    '&:hover': {
+        backgroundColor:'#67b5b7',
+    }
   }
 });
 
@@ -31,10 +37,12 @@ const Drawer=(props)=>{
   //現在地にtrueを渡す
   let isHomeNow=false;
   let isAboutMeNow=false;
+  let isAboutThisPageNow=false;
   let isTweetsNow=false;
   let isContactNow=false;
   if(nowpage==='')isHomeNow=true;
   if(nowpage==='AboutMe')isAboutMeNow=true;
+  if(nowpage==='AboutThisPage')isAboutThisPageNow=true;
   if(nowpage==='Tweets')isTweetsNow=true;
   if(nowpage==='Contact')isContactNow=true;
 
@@ -49,6 +57,9 @@ const Drawer=(props)=>{
   }
   const handleToAboutMe=()=>{
     props.history.push('/AboutMe');
+  }
+  const handleToAboutThisPage=()=>{
+    props.history.push('/AboutThisPage');
   }
   const handleToTweets=()=>{
     props.history.push('/Tweets');
@@ -65,28 +76,35 @@ const Drawer=(props)=>{
       <List>
         <ListItem
           onClick={handleToHome}
-          className={isHomeNow?classes.isSelect:classes.paper}
+          className={isHomeNow?classes.isSelect:classes.button}
         >
           <ListItemText>Home</ListItemText>
         </ListItem>
         <Divider/>
         <ListItem
+          onClick={handleToAboutThisPage}
+          className={isAboutThisPageNow?classes.isSelect:classes.button}
+        >
+          <ListItemText>AboutThisPage</ListItemText>
+        </ListItem>
+        <Divider/>
+        <ListItem
           onClick={handleToAboutMe}
-          className={isAboutMeNow?classes.isSelect:classes.paper}
+          className={isAboutMeNow?classes.isSelect:classes.button}
         >
           <ListItemText>AboutMe</ListItemText>
         </ListItem>
         <Divider/>
         <ListItem
           onClick={handleToTweets}
-          className={isTweetsNow?classes.isSelect:classes.paper}
+          className={isTweetsNow?classes.isSelect:classes.button}
         >
           <ListItemText>Tweets</ListItemText>
         </ListItem>
         <Divider/>
         <ListItem
           onClick={handleToContact}
-          className={isContactNow?classes.isSelect:classes.paper}
+          className={isContactNow?classes.isSelect:classes.button}
         >
           <ListItemText>Contact</ListItemText>
         </ListItem>

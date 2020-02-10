@@ -6,8 +6,8 @@ const Contact=()=>(
     <Header/>
     <h2>
       twitter:
-      <a href='https://twitter.com/chuni_character'>
-        @chuni_character
+      <a href='https://twitter.com/hagukipain'>
+        @hagukipain
       </a>
     </h2>
     <h2>

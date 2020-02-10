@@ -26,7 +26,7 @@ const Header=()=>{
       <Toolbar>
       <Drawer now={window.location.href}/>
         <Typography variant="h6" className={classes.title}>
-          gunjou's portfolio(仮設)
+          gunjou's portfolio(仮)
         </Typography>
       </Toolbar>
     </AppBar>
