@@ -5,7 +5,7 @@ import {TwitterTimelineEmbed} from 'react-twitter-embed';
 const Tweets=()=>(
   <div>
     <Header/>
-    <TwitterTimelineEmbed  sourceType='profile'screenName='chuni_character'/>
+    <TwitterTimelineEmbed  sourceType='profile'screenName='hagukipain'/>
   </div>
 )
 export default Tweets;
